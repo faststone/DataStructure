@@ -17,7 +17,8 @@ int main()
 	vector<string> v = { "a", "b", "c", "d", "e", "f" };
  	myVector<string> v1;
 	myList<string> l1;
-	int i = l1.size();
+	l1.insertAsFirst("a");
+	l1.insertAsFirst("b");
 	cout << l1.size() << endl;
 
 	system("pause");

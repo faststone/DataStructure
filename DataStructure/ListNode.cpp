@@ -1,13 +1,5 @@
 #include "ListNode.h"
 
-
-template <typename T>
-ListNode<T>::ListNode()
-{
-	m_pred = NULL;
-	m_next = NULL;
-}
-
 template <typename T>
 ListNode<T>* ListNode<T>::insertPred(T t)
 {

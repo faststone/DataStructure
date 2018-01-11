@@ -51,3 +51,13 @@ ListNode<T>* myList<T>::last()
 {
 	return m_tail->m_pred;
 }
+
+template <typename T>
+ListNode<T>* myList<T>::insertAsFirst(T t)
+{
+	ListNode<T>*  x = new ListNode<T>(t, m_head, m_head->m_next);
+	m_head->m_next->m_pred = x;
+	m_head->m_next = x;
+	++m_size;
+	return x;
+}
