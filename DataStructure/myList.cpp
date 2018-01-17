@@ -61,3 +61,57 @@ ListNode<T>* myList<T>::insertAsFirst(T t)
 	++m_size;
 	return x;
 }
+
+template <typename T>
+ListNode<T>* myList<T>::insertAsLast(T t)
+{
+	ListNode<T>*  x = new ListNode<T>(t, m_tail->m_pred, m_tail);
+	m_tail->m_pred->m_next = x;
+	m_tail->m_pred = x;
+	++m_size;
+	return x;
+}
+
+template <typename T>
+template <typename Vst>
+void myList<T>::travser(Vst &t)
+{
+	ListNode<T>* x = m_head->m_next;
+	while (x != m_tail)
+	{
+		t(x->data);
+		x = x->m_next;
+	}
+}
+
+template <typename T>
+T myList<T>::remove(ListNode<T>* p)
+{
+	T temp = p->data;
+	p->m_pred->m_next = p->m_next;
+	p->m_next->m_pred = p->m_pred;
+	delete p;
+	--m_size;
+	return temp;
+}
+
+template <typename T>
+ListNode<T>* myList<T>::find(T t)
+{
+	ListNode<T>* x = m_head->m_next;
+	while (x != m_tail)
+	{
+		if (x->data = t)
+		{
+			return x;
+		}
+		x = x->m_next;
+	}
+	return 0;
+}
+
+template <typename T>
+ListNode<T>* myList<T>::search(T t)
+{
+
+}
