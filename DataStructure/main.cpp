@@ -8,19 +8,38 @@
 #include "myVector.cpp"
 #include "ListNode.cpp"
 #include "myList.cpp"
+#include "myQueue.cpp"
 using namespace std;
- 
+
+template <typename T>
+class MyPrint
+{
+public:
+	void operator()(T e)
+	{
+		cout << e << " ";
+	}
+};
  
 
 int main()
 {
 	vector<string> v = { "a", "b", "c", "d", "e", "f" };
- 	myVector<string> v1;
-	myList<string> l1;
-	l1.insertAsFirst("a");
-	l1.insertAsFirst("b");
-	cout << l1.size() << endl;
 
+	myQueue<string> q1;
+	q1.enQueue("a");
+	q1.enQueue("b");
+	q1.enQueue("c");
+	q1.enQueue("d");
+	q1.enQueue("e");
+	q1.enQueue("f");
+
+	MyPrint<std::string> visit;
+	q1.travser(visit);
+	q1.dequeue();
+	q1.dequeue();
+	q1.dequeue();
+	q1.travser(visit);
 	system("pause");
 	return 0;
 }
